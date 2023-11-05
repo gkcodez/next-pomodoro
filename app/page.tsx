@@ -1,14 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  FaForward,
-  FaHourglassHalf,
-  FaLeaf,
-  FaPause,
-  FaPlay,
-  FaPlus,
-  FaTrash,
-} from "react-icons/fa6";
+import { FaHourglassHalf, FaLeaf } from "react-icons/fa6";
 
 import Button from "./components/button";
 import Icon from "./components/icon";
@@ -260,13 +252,11 @@ export default function Home() {
                         <Button
                           onClick={() => setActiveTask(task)}
                           size="xs"
-                          icon={<FaPlay />}
                         ></Button>
                         <Button
                           onClick={() => deleteTask(task.id)}
                           variant="danger"
                           size="xs"
-                          icon={<FaTrash />}
                         ></Button>
                       </div>
                     </div>
@@ -293,7 +283,6 @@ export default function Home() {
                   }}
                   variant="success"
                   size="sm"
-                  icon={<FaPlus />}
                 >
                   2 Mins
                 </Button>
@@ -302,7 +291,6 @@ export default function Home() {
                     onClick={() => setTimerState(false)}
                     variant="warning"
                     size="md"
-                    icon={<FaPause />}
                   >
                     Pause
                   </Button>
@@ -312,7 +300,6 @@ export default function Home() {
                     onClick={() => setTimerState(true)}
                     variant="primary"
                     size="md"
-                    icon={<FaPlay />}
                   >
                     Play
                   </Button>
@@ -321,7 +308,6 @@ export default function Home() {
                   onClick={() => setNextTimer()}
                   variant="secondary"
                   size="sm"
-                  icon={<FaForward />}
                 >
                   Skip
                 </Button>
