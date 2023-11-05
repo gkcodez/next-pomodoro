@@ -2,9 +2,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FaHourglassHalf, FaLeaf } from "react-icons/fa6";
 
-import Button from "./components/button";
-import Label from "./components/label";
-import LinearProgressBar from "./components/progress-bar";
+import Button from "./elements/button";
+import Label from "./elements/label";
+import LinearProgressBar from "./elements/progress-bar";
 
 export default function Home() {
   const timer = {
