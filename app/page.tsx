@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FaHourglassHalf, FaLeaf, FaStopwatch } from "react-icons/fa6";
 
 import Button from "./components/button";
+import Icon from "./components/icon";
 import Label from "./components/label";
 import LinearProgressBar from "./components/progress-bar";
 
@@ -214,7 +215,7 @@ export default function Home() {
         <div className="flex items-center justify-center w-full font-semibold text-white uppercase">
           <div className="w-1/2 p-5 bg-gray-700 border-b-2 border-l-2 border-r-2 border-gray-500 rounded-b-md">
             <div className="flex-col items-center justify-start gap-2 text-center">
-              <FaStopwatch />
+              <Icon name={FaStopwatch} size="md" />
               <Label size="xxl">Pomodoro Timer</Label>
             </div>
           </div>
