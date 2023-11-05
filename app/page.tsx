@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { FaHourglassHalf, FaLeaf } from "react-icons/fa6";
+import { FaHourglassHalf, FaLeaf, FaPlay } from "react-icons/fa6";
 
 import Button from "./elements/button";
 import Label from "./elements/label";
@@ -248,11 +248,13 @@ export default function Home() {
                         <Button
                           onClick={() => setActiveTask(task)}
                           size="xs"
+                          icon={<FaPlay />}
                         ></Button>
                         <Button
                           onClick={() => deleteTask(task.id)}
                           variant="danger"
                           size="xs"
+                          icon={<FaPlay />}
                         ></Button>
                       </div>
                     </div>
@@ -279,6 +281,7 @@ export default function Home() {
                   }}
                   variant="success"
                   size="sm"
+                  icon={<FaPlay />}
                 >
                   2 Mins
                 </Button>
@@ -287,6 +290,7 @@ export default function Home() {
                     onClick={() => setTimerState(false)}
                     variant="warning"
                     size="md"
+                    icon={<FaPlay />}
                   >
                     Pause
                   </Button>
@@ -296,6 +300,7 @@ export default function Home() {
                     onClick={() => setTimerState(true)}
                     variant="primary"
                     size="md"
+                    icon={<FaPlay />}
                   >
                     Play
                   </Button>
@@ -304,6 +309,7 @@ export default function Home() {
                   onClick={() => setNextTimer()}
                   variant="secondary"
                   size="sm"
+                  icon={<FaPlay />}
                 >
                   Skip
                 </Button>
