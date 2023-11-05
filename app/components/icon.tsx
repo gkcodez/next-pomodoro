@@ -1,11 +1,11 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { BaseHTMLAttributes, ReactNode } from "react";
+import { BaseHTMLAttributes, ReactElement } from "react";
 import cn from "../utilities/cn";
 
 interface IIcon
   extends BaseHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof IconVariants> {
-  element: ReactNode;
+  element: ReactElement;
 }
 
 export default function Icon({
