@@ -1,18 +1,8 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  FaForward,
-  FaHourglassHalf,
-  FaLeaf,
-  FaPause,
-  FaPlay,
-  FaPlus,
-  FaStopwatch,
-  FaTrash,
-} from "react-icons/fa6";
+import { FaHourglassHalf, FaLeaf, FaStopwatch } from "react-icons/fa6";
 
 import Button from "./components/button";
-import Icon from "./components/icon";
 import Label from "./components/label";
 import LinearProgressBar from "./components/progress-bar";
 
@@ -29,9 +19,9 @@ export default function Home() {
       LongBreak: 900,
     },
     Icon: {
-      Focus: <Icon element={FaHourglassHalf} size="md" />,
-      ShortBreak: <Icon element={FaLeaf} size="md" />,
-      LongBreak: <Icon element={FaLeaf} size="md" />,
+      Focus: <FaHourglassHalf />,
+      ShortBreak: <FaLeaf />,
+      LongBreak: <FaLeaf />,
     },
   };
 
@@ -224,7 +214,7 @@ export default function Home() {
         <div className="flex items-center justify-center w-full font-semibold text-white uppercase">
           <div className="w-1/2 p-5 bg-gray-700 border-b-2 border-l-2 border-r-2 border-gray-500 rounded-b-md">
             <div className="flex-col items-center justify-start gap-2 text-center">
-              <Icon element={FaStopwatch} size="md" />
+              <FaStopwatch />
               <Label size="xxl">Pomodoro Timer</Label>
             </div>
           </div>
@@ -259,13 +249,11 @@ export default function Home() {
                         <Button
                           onClick={() => setActiveTask(task)}
                           size="xs"
-                          icon={FaPlay}
                         ></Button>
                         <Button
                           onClick={() => deleteTask(task.id)}
                           variant="danger"
                           size="xs"
-                          icon={FaTrash}
                         ></Button>
                       </div>
                     </div>
@@ -290,7 +278,6 @@ export default function Home() {
                   }}
                   variant="success"
                   size="sm"
-                  icon={FaPlus}
                 >
                   2 Mins
                 </Button>
@@ -298,7 +285,6 @@ export default function Home() {
                   <Button
                     onClick={() => setTimerState(false)}
                     variant="warning"
-                    icon={FaPause}
                     size="md"
                   >
                     Pause
@@ -308,7 +294,6 @@ export default function Home() {
                   <Button
                     onClick={() => setTimerState(true)}
                     variant="primary"
-                    icon={FaPlay}
                     size="md"
                   >
                     Play
@@ -318,7 +303,6 @@ export default function Home() {
                   onClick={() => setNextTimer()}
                   variant="secondary"
                   size="sm"
-                  icon={FaForward}
                 >
                   Skip
                 </Button>
