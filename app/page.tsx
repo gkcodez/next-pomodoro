@@ -24,7 +24,7 @@ export default function Home() {
       LongBreak: "LongBreak",
     },
     Duration: {
-      Focus: 10,
+      Focus: 1200,
       ShortBreak: 300,
       LongBreak: 900,
     },
