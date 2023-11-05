@@ -6,13 +6,13 @@ interface ILabel
   extends LabelHTMLAttributes<HTMLLabelElement>,
     VariantProps<typeof labelVariants> {}
 
-export const Label = ({
+export default function Label({
   children,
   className,
   variant = "primary",
   size = "md",
   ...props
-}: ILabel) => {
+}: ILabel) {
   return (
     <label
       {...props}
@@ -21,7 +21,7 @@ export const Label = ({
       {children}
     </label>
   );
-};
+}
 
 const variants = {
   variants: {

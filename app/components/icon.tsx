@@ -1,37 +1,29 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { CanvasHTMLAttributes } from "react";
+import { BaseHTMLAttributes } from "react";
 import cn from "../utilities/cn";
 
 interface IIcon
-  extends CanvasHTMLAttributes<HTMLCanvasElement>,
+  extends BaseHTMLAttributes<HTMLOrSVGImageElement>,
     VariantProps<typeof IconVariants> {
   element: React.ElementType;
 }
 
-export const Icon = ({
+export default function Icon({
   children,
   className,
   variant,
   element,
   size = "md",
   ...props
-}: IIcon) => {
+}: IIcon) {
   const IconComponent = element;
   return (
     <IconComponent
       {...props}
       className={cn(IconVariants({ variant, size }), className)}
     />
-    // <p
-    //   className={twMerge(
-    //     clsx(IconVariants({ orientation })),
-    //     `font-semibold uppercase ${getTextSize(size)}`
-    //   )}
-    // >
-    //   {children}
-    // </p>
   );
-};
+}
 
 const variants = {
   variants: {

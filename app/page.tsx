@@ -11,10 +11,10 @@ import {
   FaTrash,
 } from "react-icons/fa6";
 
-import { Button } from "./components/button";
-import { Icon } from "./components/icon";
-import { Label } from "./components/label";
-import { LinearProgressBar } from "./components/progress-bar";
+import Button from "./components/button";
+import Icon from "./components/icon";
+import Label from "./components/label";
+import LinearProgressBar from "./components/progress-bar";
 
 export default function Home() {
   const timer = {
@@ -219,16 +219,18 @@ export default function Home() {
   if (!rendered) return <></>;
 
   return (
-    <main className="flex flex-col items-center justify-between min-h-screen bg-gray-800">
-      <div className="items-center justify-between w-full min-h-screen font-mono text-sm lg:flex-col">
-        <div className="flex items-center justify-between w-full p-5 mb-2 bg-gray-700 border-white">
-          <div className="flex items-center justify-start gap-2 font-semibold text-white uppercase">
-            <Icon element={FaStopwatch} size="md" />
-            <Label size="xl">Pomodoro Timer</Label>
+    <main className="flex-col items-center justify-center min-h-screen bg-gray-800">
+      <div className="flex-col items-center justify-center w-full min-h-screen font-mono text-sm">
+        <div className="flex items-center justify-center w-full font-semibold text-white uppercase">
+          <div className="w-1/2 p-5 bg-gray-700 border-b-2 border-l-2 border-r-2 border-gray-500 rounded-b-md">
+            <div className="flex-col items-center justify-start gap-2 text-center">
+              <Icon element={FaStopwatch} size="md" />
+              <Label size="xxl">Pomodoro Timer</Label>
+            </div>
           </div>
         </div>
-        <div className="flex items-stretch w-screen gap-5 p-5 justify-stretch">
-          <div className="flex-col items-start justify-center w-2/6 min-h-full p-5 font-semibold text-white uppercase bg-gray-700 rounded-xl">
+        <div className="flex flex-wrap items-stretch justify-center w-screen gap-5 p-5">
+          <div className="flex-col flex-wrap items-start justify-center w-full min-h-full p-5 font-semibold text-white uppercase bg-gray-700 border-2 border-gray-500 lg:w-5/12 rounded-xl">
             <div className="my-3">
               <form
                 onSubmit={addTask}
@@ -271,7 +273,7 @@ export default function Home() {
                 })}
             </div>
           </div>
-          <div className="relative flex-col items-center justify-center w-full p-5 text-center bg-gray-700 rounded-xl">
+          <div className="flex-col flex-wrap items-center justify-center w-full p-5 text-center bg-gray-700 border-2 border-gray-500 lg:w-6/12 rounded-xl">
             <div className="flex-col items-center justify-center mt-5 text-2xl font-semibold text-white uppercase">
               {timerIcon}
               {timerType}
