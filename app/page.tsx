@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   FaForward,
   FaHourglassHalf,
@@ -57,6 +57,11 @@ export default function Home() {
     description: "",
     estimate: 0,
   });
+  const [rendered, setRendered] = useState(false);
+
+  useEffect(() => {
+    setRendered(true);
+  }, []);
 
   const setNextTimer: any = useCallback(() => {
     setIsTimerRunning(false);
@@ -107,29 +112,35 @@ export default function Home() {
     setFormattedTimeLeft(`${remainingMinutes}:${remainingSeconds}`);
   }, [timeLeft]);
 
-  const timerRunningAudioCallback: any = useCallback(() => {
-    const timerRunningAudio = new Audio("\\audio\\ticking-slow.mp3");
-    timerRunningAudio.loop = true;
-    return timerRunningAudio;
-  }, []);
-
-  const timerFinishedAudioCallback: any = useCallback(() => {
-    const timerFinishedAudio = new Audio("\\audio\\clock-alarm.mp3");
-    timerFinishedAudio.loop = false;
-    return timerFinishedAudio;
-  }, []);
-
   useMemo(() => {
     timerCallBack();
   }, [timerCallBack]);
 
-  useMemo(() => {
-    setTimerRunningAudio(timerRunningAudioCallback());
-  }, [timerRunningAudioCallback]);
+  const timerRunningAudioRef = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined"
+      ? new Audio("\\audio\\ticking-slow.mp3")
+      : undefined
+  );
+
+  const timerFinishedAudioRef = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined"
+      ? new Audio("\\audio\\clock-alarm.mp3")
+      : undefined
+  );
 
   useMemo(() => {
-    setTimerFinishedAudio(timerFinishedAudioCallback());
-  }, [timerFinishedAudioCallback]);
+    if (timerRunningAudioRef && timerRunningAudioRef.current) {
+      timerRunningAudioRef.current.loop = true;
+      setTimerRunningAudio(timerRunningAudioRef.current);
+    }
+  }, [timerRunningAudioRef]);
+
+  useMemo(() => {
+    if (timerFinishedAudioRef && timerFinishedAudioRef.current) {
+      timerFinishedAudioRef.current.loop = false;
+      setTimerFinishedAudio(timerFinishedAudioRef.current);
+    }
+  }, [timerFinishedAudioRef]);
 
   useEffect(() => {
     if (timeLeft == 1) {
@@ -165,7 +176,6 @@ export default function Home() {
     setNextTimer,
     timerType,
     timer.Type.Focus,
-    timerRunningAudioCallback,
     timerRunningAudio,
     timerFinishedAudio,
   ]);
@@ -206,6 +216,8 @@ export default function Home() {
     setNewTaskName(event.target.value);
   };
 
+  if (!rendered) return <></>;
+
   return (
     <main className="flex flex-col items-center justify-between min-h-screen bg-gray-800">
       <div className="items-center justify-between w-full min-h-screen font-mono text-sm lg:flex-col">
@@ -233,29 +245,30 @@ export default function Home() {
               </form>
             </div>
             <div className="flex-col items-center justify-center gap-5 overflow-y-auto h-72">
-              {tasks.map((task) => {
-                return (
-                  <div
-                    className="flex items-center justify-between w-full p-4 mt-1 bg-gray-800 rounded-md"
-                    key={task.id}
-                  >
-                    <p>{task.description}</p>
-                    <div className="flex items-center gap-2">
-                      <Button
-                        onClick={() => setActiveTask(task)}
-                        size="xs"
-                        icon={FaPlay}
-                      ></Button>
-                      <Button
-                        onClick={() => deleteTask(task.id)}
-                        variant="danger"
-                        size="xs"
-                        icon={FaTrash}
-                      ></Button>
+              {tasks &&
+                tasks.map((task) => {
+                  return (
+                    <div
+                      className="flex items-center justify-between w-full p-4 mt-1 bg-gray-800 rounded-md"
+                      key={task.id}
+                    >
+                      <p>{task.description}</p>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          onClick={() => setActiveTask(task)}
+                          size="xs"
+                          icon={FaPlay}
+                        ></Button>
+                        <Button
+                          onClick={() => deleteTask(task.id)}
+                          variant="danger"
+                          size="xs"
+                          icon={FaTrash}
+                        ></Button>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           </div>
           <div className="relative flex-col items-center justify-center w-full p-5 text-center bg-gray-700 rounded-xl">
