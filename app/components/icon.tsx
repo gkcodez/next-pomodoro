@@ -1,27 +1,25 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { BaseHTMLAttributes } from "react";
+import { BaseHTMLAttributes, ReactNode } from "react";
 import cn from "../utilities/cn";
 
 interface IIcon
   extends BaseHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof IconVariants> {
-  name: React.ElementType;
+  element: ReactNode;
 }
 
 export default function Icon({
   children,
   className,
-  name,
+  element,
   variant,
   size = "md",
   ...props
 }: IIcon) {
-  const IconElement: React.ElementType = name;
   return (
-    <IconElement
-      {...props}
-      className={cn(IconVariants({ variant, size }), className)}
-    />
+    <div {...props} className={cn(IconVariants({ variant, size }), className)}>
+      {element}
+    </div>
   );
 }
 
@@ -40,4 +38,4 @@ const variants = {
   },
 };
 
-const IconVariants = cva("w-full", variants);
+const IconVariants = cva("flex items-center justify-center", variants);
