@@ -9,7 +9,7 @@ interface IIcon
 export default function Icon({
   children,
   className,
-  variant,
+  variant = "primary",
   size = "md",
   ...props
 }: IIcon) {
