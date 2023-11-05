@@ -2,16 +2,15 @@ import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
-import Icon from "./icon";
-import Label from "./label";
+import { Icon } from "./icon";
+import { Label } from "./label";
 
 interface IButton
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   icon: typeof Icon;
 }
-
-export default function Button({
+export const Button = ({
   children,
   className,
   variant = "primary",
@@ -19,7 +18,7 @@ export default function Button({
   orientation = "vertical",
   icon,
   ...props
-}: IButton) {
+}: IButton) => {
   return (
     <button
       {...props}
@@ -39,7 +38,7 @@ export default function Button({
       </div>
     </button>
   );
-}
+};
 
 const variants = {
   variants: {

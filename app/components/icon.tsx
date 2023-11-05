@@ -8,14 +8,14 @@ interface IIcon
   element: React.ElementType;
 }
 
-export default function Icon({
+export const Icon = ({
   children,
   className,
   variant,
   element,
   size = "md",
   ...props
-}: IIcon) {
+}: IIcon) => {
   const IconComponent = element;
   return (
     <IconComponent
@@ -31,7 +31,7 @@ export default function Icon({
     //   {children}
     // </p>
   );
-}
+};
 
 const variants = {
   variants: {

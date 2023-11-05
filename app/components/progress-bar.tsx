@@ -4,7 +4,7 @@ interface ILinearProgressBar {
   animateTiming?: number;
 }
 
-const LinearProgressBar: React.FC<ILinearProgressBar> = (props) => {
+export const LinearProgressBar: React.FC<ILinearProgressBar> = (props) => {
   return (
     <div
       className="bg-sky-500 h-1 rounded-full"
@@ -12,5 +12,3 @@ const LinearProgressBar: React.FC<ILinearProgressBar> = (props) => {
     />
   );
 };
-
-export default LinearProgressBar;

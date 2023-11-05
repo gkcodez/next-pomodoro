@@ -11,10 +11,10 @@ import {
   FaTrash,
 } from "react-icons/fa6";
 
-import Button from "./components/button";
-import Icon from "./components/icon";
-import Label from "./components/label";
-import LinearProgressBar from "./components/progress-bar";
+import { Button } from "./components/button";
+import { Icon } from "./components/icon";
+import { Label } from "./components/label";
+import { LinearProgressBar } from "./components/progress-bar";
 
 export default function Home() {
   const timer = {
