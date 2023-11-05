@@ -1,24 +1,21 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { BaseHTMLAttributes, ReactElement } from "react";
+import { BaseHTMLAttributes } from "react";
 import cn from "../utilities/cn";
 
 interface IIcon
   extends BaseHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof IconVariants> {
-  element: ReactElement;
-}
+    VariantProps<typeof IconVariants> {}
 
 export default function Icon({
   children,
   className,
-  element,
   variant,
   size = "md",
   ...props
 }: IIcon) {
   return (
     <div {...props} className={cn(IconVariants({ variant, size }), className)}>
-      {element}
+      {children}
     </div>
   );
 }
