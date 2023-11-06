@@ -33,7 +33,7 @@ export default function Button({
         )}
       >
         {icon}
-        <Label size={size}>{children}</Label>
+        <Label>{children}</Label>
       </div>
     </button>
   );
