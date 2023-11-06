@@ -256,13 +256,13 @@ export default function Home() {
                         <Button
                           onClick={() => setActiveTask(task)}
                           size="xs"
-                          icon={FaPlay}
+                          icon={<FaPlay className="text-xl" />}
                         ></Button>
                         <Button
                           onClick={() => deleteTask(task.id)}
                           variant="danger"
                           size="xs"
-                          icon={FaTrash}
+                          icon={<FaTrash className="text-xl" />}
                         ></Button>
                       </div>
                     </div>
@@ -289,7 +289,7 @@ export default function Home() {
                   }}
                   variant="success"
                   size="sm"
-                  icon={FaPlus}
+                  icon={<FaPlus className="text-xl" />}
                 >
                   2 Mins
                 </Button>
@@ -298,7 +298,7 @@ export default function Home() {
                     onClick={() => setTimerState(false)}
                     variant="warning"
                     size="md"
-                    icon={FaPause}
+                    icon={<FaPause className="text-5xl" />}
                   >
                     Pause
                   </Button>
@@ -308,7 +308,7 @@ export default function Home() {
                     onClick={() => setTimerState(true)}
                     variant="primary"
                     size="md"
-                    icon={FaPlay}
+                    icon={<FaPlay className="text-5xl" />}
                   >
                     Play
                   </Button>
@@ -317,7 +317,7 @@ export default function Home() {
                   onClick={() => setNextTimer()}
                   variant="secondary"
                   size="sm"
-                  icon={FaForward}
+                  icon={<FaForward className="text-xl" />}
                 >
                   Skip
                 </Button>
@@ -341,12 +341,12 @@ export default function Home() {
                 )}
             </div>
           </div>
-          {/* <div className="flex-col items-center justify-center w-1/6 p-5 font-semibold text-center text-white uppercase bg-gray-700 rounded-xl">
+          <div className="flex-col items-center justify-center w-1/6 p-5 font-semibold text-center text-white uppercase bg-gray-700 rounded-xl">
             Pomodoros
             <h3 className="text-5xl font-bold text-white">
               {currentPomodoroCount}
             </h3>
-          </div> */}
+          </div>
         </div>
       </div>
     </main>

@@ -1,14 +1,13 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
-import Icon from "./icon";
 import Label from "./label";
 
 interface IButton
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  icon: React.ElementType;
+  icon: ReactNode;
 }
 export default function Button({
   children,
@@ -33,7 +32,7 @@ export default function Button({
           "gap-1 items-center justify-center pointer-events-none"
         )}
       >
-        <Icon element={icon} />
+        {icon}
         <Label size={size}>{children}</Label>
       </div>
     </button>
