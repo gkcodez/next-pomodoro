@@ -222,7 +222,7 @@ export default function Home() {
         <div className="flex items-center justify-center w-full font-semibold text-white uppercase">
           <div className="w-1/2 p-5 bg-gray-700 border-b-2 border-l-2 border-r-2 border-gray-500 rounded-b-md">
             <div className="flex-col items-center justify-start gap-2 text-center">
-              <Label size="xxl">Pomodoro Timer</Label>
+              <Label className="text-lg md:text-2xl">Pomodoro Timer</Label>
             </div>
           </div>
         </div>

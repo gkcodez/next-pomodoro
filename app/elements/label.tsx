@@ -28,17 +28,6 @@ const variants = {
     variant: {
       primary: "text-white",
     },
-    size: {
-      xs: "text-xs",
-      sm: "text-sm",
-      md: "text-md",
-      lg: "text-lg",
-      xl: "text-xl",
-      xxl: "text-2xl",
-      xxxl: "text-3xl",
-      xxxxl: "text-4xl",
-      xxxxxl: "text-5xl",
-    },
   },
 };
 
