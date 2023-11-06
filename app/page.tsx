@@ -341,12 +341,12 @@ export default function Home() {
                 )}
             </div>
           </div>
-          <div className="flex-col items-center justify-center w-1/6 p-5 font-semibold text-center text-white uppercase bg-gray-700 rounded-xl">
+          {/* <div className="flex-col items-center justify-center w-1/6 p-5 font-semibold text-center text-white uppercase bg-gray-700 rounded-xl">
             Pomodoros
             <h3 className="text-5xl font-bold text-white">
               {currentPomodoroCount}
             </h3>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
