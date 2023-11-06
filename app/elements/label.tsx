@@ -13,10 +13,7 @@ export default function Label({
   ...props
 }: ILabel) {
   return (
-    <label
-      {...props}
-      className={cn(labelVariants({ variant, size }), className)}
-    >
+    <label {...props} className={cn(labelVariants({ variant }), className)}>
       {children}
     </label>
   );
