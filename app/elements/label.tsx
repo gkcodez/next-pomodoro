@@ -10,7 +10,6 @@ export default function Label({
   children,
   className,
   variant = "primary",
-  size = "md",
   ...props
 }: ILabel) {
   return (
