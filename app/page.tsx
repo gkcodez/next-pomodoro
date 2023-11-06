@@ -310,7 +310,7 @@ export default function Home() {
                     size="md"
                     icon={<FaPlay className="text-5xl" />}
                   >
-                    Play
+                    Start
                   </Button>
                 )}
                 <Button
